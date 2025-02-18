@@ -2,9 +2,6 @@
 /* PLAYBROUD-2025 CSS (Initial Setup)
 ---------------------------------
 /* 
-CSS TABLE OF CONTENTS
-
-# BASIC CSS FROM PARTIALS
 
 # GLOBAL STYLES
     # GLOBAL VARIABLES
@@ -14,7 +11,7 @@ CSS TABLE OF CONTENTS
     # GLOBAL MEDIA
     # GLOBAL HELPERS
 
-# LAYOUT & GRID SYSTEM (=====> @import)
+# LAYOUT
     # MEDIA QUERIES / BREAKPOINTS (RESPONSIVE TYPOGRAPHY)
     # CONTAINER
     # GRID
@@ -31,7 +28,7 @@ CSS TABLE OF CONTENTS
             # HERO
     # FOOTER
 
-# UI COMPONENTS (=====> @import)
+# UI COMPONENTS
     # BUTTONS
 
 # ANIMATION
@@ -39,32 +36,97 @@ CSS TABLE OF CONTENTS
 
 # CUSTOM STYLING
 
+---------------------------------
 --------------------------------- */
 
-/* GLOBAL SETTINGS ---------- */ 
+/* -------------------- */
+/* --  GLOBAL STYLES -- */
+/* -------------------- */
+
+/* GLOBAL VARIABLES */
+:root {
+
+    /* DEFINE ALL COMMONLY USED COLORS HERE */
+
+    --my-white: rgb(235 235 235  / 1);
+    --my-white10: rgb(225 225 225  / .1);
+    --my-green: rgb(0 255 0 /1);
+    --my-green80: rgba(128 255 128 / .8);
+    --my-black100: rgb(10 10 10 / 1);
+    --my-black: rgb(10 10 10 / .8);
+    --my-black20: rgb(10 10 10 / .2);
+    --my-black30: rgb(10 10 10 / .3);
+    --my-black60: rgb(10 10 10 / .6);
+
+    /* LIGHT MODE */
+    --color-body-bg: var(--my-white);
+    --color-text-body: var(--myblack);
+    --color-text-headings: var(--myblack);
+
+    /* DARK MODE */
+    /* --color-body-bg: rgb(0 0 0 /1);
+    --color-text-body: rgb(255 255 255 / .8);
+    --color-text-headings: rgb(255 255 255 /1); */
+
+    --color-a: var(--my-black100);
+    --color-a-hover: var(--my-green);
+    /* --color-a-dark: blue;
+    --color-a-darker: darkblue;
+    --color-a-light: lightblue;
+    --color-a-lighter: rgb(255 255 255 / 1); */
+    
+    --color-siteheader-bg: transparent;
+    --color-siteheader-a: var(--color-text-headings);
+    
+    --color-hero-bg: rgb(100 100 100 /1);
+    --color-hero-headings: rgb(255 255 255 /1);
+    --color-hero-text: rgb(255 255 255 /.8);
+    
+    --color-sitefooter-bg: var(--my-black100);
+    --color-sitefooter-text: var(--my-white);
+    --color-sitefooter-headings: var(--my-white);
+    --color-sitefooter-a: var(--my-green);
+
+    /*  DEFINE ALL FONTS USED HERE */
+    --font-serif: 'pp_editorial_oldregular', Georgia, serif;
+    --font-sans-serif: 'karla', sans-serif, system-ui;
+
+    /* SIZING UNITS */
+    --container-width: 1200px;
+    --unit-small: 1em;
+    --unit-medium: 2em;
+    --unit-large: 4em;
+}
+
 /* GLOBAL RESET */
 * { box-sizing: border-box; }
 body { margin: 0;}
 
 /* GLOBAL COLORS */
-html {
-    --my-white: rgb(235 235 235  /1);
-    --my-white10: rgb(225 225 225  /.1);
-    --my-magenta: rgb(252 15 192 /1);
-    --my-green: rgb(0 255 0 /1);
-    --my-green80: rgba(128 255 128 /.8);
-    --my-black: rgb(10 10 10 /.8);
-    --my-black20: rgb(10 10 10 /.2);
-    --my-black30: rgb(10 10 10 /.3);
-    --my-black60: rgb(10 10 10 /.6);
-}
 body { 
-    background-color: var(--my-white);
+    background-color: var(--color-body-bg);
     /* background-color:rgb(177, 177, 177); */
 }
 
-/* TYPOGRAPHY ------------------ */ 
-/* Reference -------------------
+h1, h2, h3, h4, h5 {
+    color: var(--color-text-headings);
+}
+
+a {
+    color: var(--color-a);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--color-a-hover);
+    } 
+}
+
+dt {
+    color: var(--my-black60)
+}
+
+/* GLOBAL TYPOGRAPHY
+ * Reference -------------------
     62.5%   => 10px 
     68.2%   => 11px
     75%     => 12px
@@ -78,9 +140,10 @@ body {
 --------------------------------- */
 
 body {
-	font-family: 'karla', sans-serif;
-	font-size: 88.75%;  /* 14pt */
-	line-height: 1.4; 
+	font-family: var(--font-sans-serif);
+    font-weight: 300;
+	font-size: 88.75%;  /* 14px */
+	line-height: 1.4;
 	color: var(--my-black);
 }
 
@@ -88,48 +151,34 @@ body {
     margin: 0.5em 0;
  }
 
- h1, h2 {
-    font-family: 'pp_editorial_oldregular', Georgia, serif;
-    margin: .5em 0;
+ h1, h2, h3 {
+    font-family: var(--font-serif);
 }
 
-h3 {
-    font-family: 'pp_editorial_olditalic', Georgia, serif;
-    margin: .5em 0;
-}
-
-h4, h5, h6 {
-    font-family: 'Karla', sans-serif; 
+h4, h5 {
+    font-family: var(--font-sans-serif);
     margin: .5em 0;
     font-weight: 600;
 }
 
-dt {
-    font-family: 'ppeditorialold-ultrabolditalic', Georgia, serif;
-/* QUESTIONO: why is not working */
-}
-
 h1 {
-    /* 36px / 16px = 2.25em */
-    font-size: 2.25em;
+    font-size: 3em;
     line-height: 1.1;
 }
 
 h2 {
-    /* 24px / 16px = 1.5em */
-    font-size: 1.5em;
+    font-size: 2em;
     line-height: 1.2;
 }
 
 h3 {
-    /* 21px / 16px = 1.3125em */
-    font-size: 1.3125em;
+    font-size: 1.5em;
     line-height: 1.3;
 }
 
 h4 {
     /* 18px / 16px = 1.125em */
-    font-size: 1.125em;
+    font-size: 1.25em;
     line-height: 1.4;
 }
 
@@ -139,24 +188,23 @@ h5 {
     line-height: 1.5;
 }
 
-h6 {
+p {
     /* 14px / 16px = 1em */
     font-size: 0.875em;
     line-height: 1.4;
-} 
-
-p {
-    /* 12px */
-    font-size: 0.75em;
-    /* QUESTION: font weight seems not working, why?? and why is the list outside the margin??? */
     font-weight: 200;
     margin: 1em 0;
     padding: 0;
-    max-width: 38em;
+    max-width: 66ch;
+    text-wrap: pretty;
 }
 
 dt {
-    color: var(--my-black30)
+    font-family: var(--font-serif);
+}
+
+dd {
+    font-family: var(--font-sans-serif);
 }
 
 dt, dd {
@@ -165,77 +213,76 @@ dt, dd {
     max-width: 38em;
 }
 
-dd {
+/* dd {
     padding: 0, 0, 0 -10em;
-}
-
-/* LINKS */
-a {
-    text-decoration: none;
-    color: var(--my-black);
-}
-
-a:hover {
-    color: var(--my-green);
-}
-
-/* BLOCK QUOTES */
-blockquote {
-    font-size: 1.142em;
-    margin: 1.5em 0;
-    padding: 1.5em;
-    border-top: 0px solid #ccc;
-    border-bottom: 0px solid #ccc;
-}
-
-blockquote cite {
-    display: block;
-    opacity: 0.8;
-    font-size: 0.875em;
-}
-
-blockquote cite:before {
-    content: "—";
-    margin-right: 0.25em;
-}
-
-/* GLOBAL HELPER CLASSES */
-/* .text-center {
-    text-align: center;
 } */
 
-.full-width {
+/* GLOBAL MEDIA */
+/* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
+img {
+    max-width: 100%;
+    height: auto; 
+}
+
+/* GLOBAL HELPERS */
+
+/* HIDE ELEMENTS VISUALLY BUT NOT FROM SCREEN READERS AND SEARCH ENGINES */
+.hide-visually {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+@media (max-width: 767px) {
+    .hide-visually-smallonly {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+}
+
+/* .full-width {
     max-width: none;
     width: 100%;
-}
+} */
 
 /* .horiz-center {
     margin-left: auto;
     margin-right: auto;
 } */
 
-/* ----------------------------------------------- */
-/* LAUOUT & GRID  */
-/* ----------------------------------------------- */
+/* ------------------- */
+/* -----  LAYOUT ----- */
+/* ------------------- */
 
-/* MEDIA QUERIES */
-/* phone -> tablet -> laptop -> desktop */
-@media ( min-width: 768px) {
-    /* TABLET SIZED STYLING GOES HERE */
+/* RESPONSIVE TYPOGRAPHY VIA MEDIA QUERIES */
+
+/* SMALL SCREENS (Mobile , 767px) */
+body {
+    /* Set the default font size */
+    font-size: 87.5%; 
+}
+
+/* MEDIUM SCREENS ( Tablets < 1200px ) */
+@media (min-width: 768px) {
     body {
-        font-size: 100%;
+        /* Set the medium screens and highr font size to 16px */
+        /* font-size: 100%;  */
     }
 }
 
-@media ( min-width: 1050px) {
+/* LARGE SCREENS ( Laptops & Desktop > 1200px ) */
+
+@media (min-width: 1200px) {
     body {
-        font-size: 100%;    /* 16px */
+        /* Set the medium screens and highr font size to 16px */
+        font-size: 112.5%; 
     }
 }
 
-@media ( min-width: 1250px) {
+/* @media ( min-width: 1250px) {
     body {
-        font-size: 112.5%;  /* 18px */
+        font-size: 112.5%; 
     }
     .container {
         max-width: 1200px;
@@ -243,7 +290,7 @@ blockquote cite:before {
     .container-thumbgrid {
         max-width: 90vw;
     }
-}
+} */
 
 /* IMAGES */
 img {
@@ -251,10 +298,12 @@ img {
     height: auto;
 }
 
-/* LAYOUT ---------- */ 
 /* CONTAINER */
 .container {
-    margin: 0 auto;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    /* margin: 0 auto; */
     padding: 2% 0.5%;
 }
 
@@ -269,43 +318,72 @@ img {
     text-align: center;
 }
 
-/* GRID SYSTEM */
+/* GRID */
 .row {
-    --gridgap: 4%;
-    --gridgap-half: calc( var(--gridgap) / 2);
-    padding-bottom: var(--gridgap);
-  }
-  
-  @media (min-width: 768px) {
+    --gridgap: 2em;
+}
+
+/* - All the children under row */
+.row > * {
+
+    /* - Setting bttom margin for each fraction */
+    margin-top: var(--gridgap);
+    margin-bottom: var(--gridgap);
+}
+
+@media (min-width: 768px) {
+
     .row {
-      display: flex;
-      justify-content: space-between;
-      gap: var(--gridgap);
-      padding: 0;
-      margin: var(--gridgap) 0;
+        /* - Create grid in 12 columns, with equal fractions */
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gridgap);
     }
-  
-    .row > * {
-      flex-grow: 1;
-    }
-  
-    .row.swap {
-      flex-direction: row-reverse;
-    }
-  
-    .row .one-half { max-width: calc( 50% - var(--gridgap-half) ); }
-    .row .one-third { max-width: calc( 33.3333% - var(--gridgap-half) ); }
-    .row .two-thirds { max-width: calc( 66.6666% - var(--gridgap-half) ); }
-    
-}
 
-.textblock {
-    margin: 0 0 3em 0;
-}
+    /* COMMONLY USED SEMANTIC COLUMN WIDTHS
+       - Setting size for each grid */
+    .one-half { grid-column: auto / span 6; }
+    .one-third { grid-column: auto / span 4; }
+    .two-thirds { grid-column: auto / span 8; }
+    .one-fourth { grid-column: auto / span 3; }
+    .three-fourths { grid-column: auto / span 9; }
 
-.textblock a:hover {
-    color: var(--my-green);
-    text-decoration: none;
+    /* - 12 Column Classes */
+    .col-1 {grid-column: auto / span 1; }
+    .col-2 {grid-column: auto / span 2; }
+    .col-3 {grid-column: auto / span 3; }
+    .col-4 {grid-column: auto / span 4; }
+    .col-5 {grid-column: auto / span 5; }
+    .col-6 {grid-column: auto / span 6; }
+    .col-7 {grid-column: auto / span 7; }
+    .col-8 {grid-column: auto / span 8; }
+    .col-9 {grid-column: auto / span 9; }
+    .col-10 {grid-column: auto / span 10; }
+    .col-11 {grid-column: auto / span 11; }
+    .col-12 {grid-column: auto / span 12; }
+
+    /*  - Centered columns */
+    .one-half.centered {grid-column: 4 / span 6; }
+    .one-third.centered {grid-column: 5 / span 4; } 
+    .two-thirds.centered {grid-column: 3 / span 8; } 
+
+    /* - Pushes */
+    .push-1 { grid-column-start: 2; }
+    .push-2 { grid-column-start: 3; }
+    .push-3 { grid-column-start: 4; }
+    .push-4 { grid-column-start: 5; }
+    .push-5 { grid-column-start: 6; }
+    .push-6 { grid-column-start: 7; }
+    .push-7 { grid-column-start: 8; }
+    .push-8 { grid-column-start: 9; }
+    .push-9 { grid-column-start: 10; }
+    .push-10 { grid-column-start: 11; }
+    .push-11 { grid-column-start: 12; }
+
+    /* SWAP (REVERSE) COLUMNS - WORKS ONLY w/ 2 CHILDREN  */
+    .row.swapped > *:first-child { order: 2; }
+    .row.swapped > *:last-child { order: 1; }
+
 }
 
 /* PLACE SITE-ID LEFT AND NAV RIGHT ON LARGER SCREENS */
@@ -317,38 +395,225 @@ img {
 }
 
 /* ----------------------------------------------- */
-/* UI COMPONENTS */
-/* ----------------------------------------------- */
-
-/* BUTTONS */
-.link-button {
-    background-color: var(--my-black60);
-    border-radius: 2px;
-    color: var(--my-white);
-    padding: 0.25em 1em;
-}
-
-.link-button:hover {
-    background-color: var(--my-green);
-    color: var(--my-black);
-}
-
-/* ----------------------------------------------- */
 /* SITE STRUCTURE  */
 /* ----------------------------------------------- */
 
-/* SITE HEADER & FOOTER */
+/* SITE HEADER */
 .site-header {
+    background-color: var(--color-siteheader-bg);
     padding: 1em 0 1em 0;
+
+    /* PUT ALL HEADER CHILDREN SIDE-BY-SIDE AND VERT CENTERED */
+    @media (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* ADD SOME GENERAL SPACING AROUND THE HEADER */
+    padding: var(--unit-small);
+
+   /* REMOVE LINK UNDERLINES */
+    a {
+        text-decoration: none;
+    }
+
+    /* SITE LOGO */
+    .site-logo {
+
+        /* PUT SITE LOGO CHILDREN SIDE-BY-SIDE AND CENTER */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+
+        /* REMOVE MARGINS AND RESIZE H1 INSIDE HEADER */
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            text-wrap: nowrap;
+        }
+
+        /* REMOVE THE SPACE UDER THE LOGO MARK */
+        img, svg {
+            display: block;
+        }
+
+    }
+
+    /* SITE-HEADER-NAV */
+    .site-header-nav {
+
+        ul {
+            /* REMOVE MARGINS & BULLETS FROM LIST */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        
+        }
+
+        /* MAKE SITE NAV LINKS BIG LIKE BUTTONS */
+        a {
+            display: block;
+            padding: 1em;
+        }
+
+    }
+
 }
 
+/* TOGGLE MENU */
+/*HIDE MENU BUTTON IF NOT USING TOGGLE MENU  */
+/* QUESTION: toggle menu not showing */
+.site-menu-button {
+    display: none;
+}
+
+.toggle-menu {
+
+    --color-togglemenu-bg: var(--my-black100);
+    --color-togglemenu-text: var(--my-white);
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    /* SHOW MENU BUTTON IF USING TOGGLE NAV */
+    .site-menu-button {
+        display: block;
+        background-color: transparent;
+        border: 1px solid var(--color-siteheader-a);
+        color: var(--color-siteheader-a);
+        padding: .5em;
+        position: relative;
+        z-index: 100;
+        transition: .4s all ease-out;
+
+        /* RESET THE FONT SIZE */
+        font-size: inherit;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        /* ADD SUPPORT FOR NAVICON/HAMBURGER ICON */
+        &:has(svg) {
+
+            /* VERTICALLY ALIGN THE MENU TEXT W ICON */
+            display: flex;
+            align-content: center;
+            gap: var(--unit-small);
+
+            /* REMOVE BORDER */
+            border: none;
+            
+            /* SET TSVG COLOR */
+            svg {
+                fill: var(--color-siteheader-a);
+            }
+
+            /* ADD SUPPORT FOR SVG ANIMATION (">" MEANS "IMEDIATE CHILD") */
+            svg > * {
+                transition: .2s all ease-out;
+                transform-origin: center;
+            }
+
+        }
+    }
+
+    .site-menu {
+        /* SET COLOR TO TOGGLE MENU */
+        background-color: var(--color-togglemenu-bg);
+        color: var(--color-togglemenu-text);
+
+        position: fixed;
+        top: 0;
+        right: 0; 
+        z-index: 50;
+        width: 100%;
+        min-height: 100svh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vw;
+        transition: .4s all ease-out;
+
+        a {
+            color: var(--color-togglemenu-text);
+            padding: 2vh 2vw;
+        }
+
+    }
+
+    &[data-menustate="open"] {
+
+        /* CHANGE COLOR TO TOGGLE MENU COLORS */
+        --color-siteheader-a: var(--color-togglemenu-text);
+
+        /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
+        .site-menu-button {
+            position: fixed;
+            z-index: 100;
+        }
+
+        /* SHOW THE SITE MENU WHEN OPEN */
+        .site-menu {
+            transform: translateX(0);
+        }
+
+        /* ANIMATE THE NAVICON / HAMBURGER TO AN X */
+        .site-menu-button svg {
+
+            .simple-navicon-top {
+                /* transform: rotate(45deg); */
+                rotate: 45deg;
+                translate: -21% 25%;
+            }
+
+            .simple-navicon-middle {
+                opacity: 0;
+            }
+
+            .simple-navicon-bottom {
+                rotate: -45deg;
+                translate: -21% -25%;
+            }
+
+        }
+
+    }
+
+    &[data-menustate="closed"] {
+
+        /* MOVE THE SIDE MENU TO THE RIGHT WHEN CLOSED */
+        .site-menu {
+            transform: translateX(100%);
+        }
+    }
+
+    /* IF TOGGLE MENU DISPLAY LOGO LEFT AND MENU RIGHT ON ALL SCREENS */
+    .site-header:has(.toggle-menu) {
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* PLACE SITE LOGO ON TOP OF DRAWER MENU */
+    .site-logo {
+    /* NOTE: LOGO WILL SCROLL AWAY - NEED TO ADD SUPPORT FOR FIXED */
+    /* position: relative; */
+    z-index: 100;
+    }
+}
+
+/* SITE HEADER & FOOTER */
 .site-footer {
     padding: 6em 0 1em 0;
 }
 /* SITE ID */
-.site-header a {
-    color: var(--my-black);
-}
 
 .site-footer a {
     color: var(--my-white);
@@ -362,7 +627,6 @@ img {
 
 .site-header,
 .site-footer {
-    background-color: transparent;
     position: absolute;
     width: 100%;
     z-index: 100;
@@ -582,28 +846,32 @@ img {
 }
 
 .thumbgrid-card {
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     border-radius: 2.5%;
     filter: brightness(.9);
+    max-height: 40svh;
     overflow: hidden;
     /* box-shadow: 0 4px 8px 0 var(--my-black20); */
     transition: 0.3s;
     /* margin: 30px auto;  */
     /* width: 300px;
     height: 600px; */
-    object-fit: cover;
+    /* object-fit: cover; */
     cursor: pointer;
     /* position: relative; */
 }
 
 .thumbgrid a img {
     /* border: 1px solid red; */
-    display: grid;
+    display: block;
     transition: all ease-in-out 0.2s;
     border: 1px solid rgb(255, 255, 255 /0);
     /* max-height: 100%; */
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     /* filter: brightness(.9); */
+    transform-origin: center;
 }
 
 .thumbgrid-card:hover {
@@ -786,62 +1054,24 @@ img {
     background-image: url(../work_04-sneilfujita/img/fujita_hero_1920x1440.jpg);
 }
 
-/* TOGGLE NAV ---------- */ 
-@media ( max-width: 767px) {
-    .toggle-nav .site-id {
-        position: absolute;
-    }
-    .toggle-nav .site-nav {
-        text-align: right;
-    }
-    .toggle-nav .site-nav .menu-button {
-        display: inline-block;
-        cursor: pointer;
-        padding: .3em 0;
-        margin: .8em 0;
-        border: none;
-        background: none;
-    }
-    .toggle-nav .site-nav .menu-button::selection {
-        background: rgb(255 255 255 /0);
-    }
-    .toggle-nav .site-nav ul {
-        display: block;
-        text-align: center;
-        transition: all .4s ease-out;  /* .4s is the slowest */
-    }
-    .toggle-nav .site-nav a:hover {
-        background: var(--my-green);
-        color: var(--my-black);
-    }
-    .toggle-nav[data-navstate="closed"] ul {
-        max-height: 0;
-        overflow: hidden;
-    }
-    .toggle-nav[data-navstate="open"] ul {
-        max-height: 100vh;
-        overflow: visible;
-    }
 
-    /* NAVICON */
-    .toggle-nav .site-nav .menu-button.navicon {
-        border: none;
-        color: rgb(255 255 255 /0);
-        padding: 0;
-    }
-    .toggle-nav .site-nav .menu-button.navicon::after {
-        content: "\2630";
-        display: inline-block;
-        padding: 0 .4em;
-        margin: 0;
-        color: rgb(0 0 0 /.8);
-        font-size: 1.5em;
-    }
+/* ----------------------------------------------- */
+/* UI COMPONENTS */
+/* ----------------------------------------------- */
 
-    .toggle-nav[data-navstate="open"] .site-nav .menu-button.navicon::after {
-        content: "\2715";
-    }
+/* BUTTONS */
+.a-button {
+    background-color: var(--my-black60);
+    border-radius: 2px;
+    color: var(--my-white);
+    padding: 0.25em 1em;
 }
+
+.a-button:hover {
+    background-color: var(--my-green);
+    color: var(--my-black);
+}
+
 
 /* FOR DEV PURPOSES ONLY */
 /*  Small (Mobile) Screen => ( max-width: 768px )

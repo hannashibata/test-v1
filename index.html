@@ -10,54 +10,86 @@
 
     <!-- TYPEFACE -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+    <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css">
 
     <!-- MAIN CSS FILE -->
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css">
 
 
 </head>
 
 <body>
-    <header class="site-header toggle-nav" data-navstate="closed">
+
+    <header class="site-header on-top-of-hero">
+        <div class="site-logo">
+            <a href="index.html">
+                <!-- <img src="https://via.placeholder.com/50" alt="placeholder logo" width="50" height="50"> -->
+                 <img src="img/placeholder-logo-500x500.svg" alt="logo" width="50" height="50">
+                <!-- <svg width="50" height="50">
+                    <circle r="25" cx="25" cY="25" fill="#888"></circle>
+                </svg> -->
+            </a>
+            <h1 class="hide-visuallyx"><a href="index.html">Simple Base</a></h1>
+        </div>
+
+        <nav class="site-header-nav toggle-menu" data-menustate="closed">
+            <button class="site-menu-button">
+                <span class="hide-visually">Menu</span>
+                <svg class="simple-navicon" width="24" height="21">
+                    <rect class="simple-navicon-top" x="0" y="2" height="3" width="24"></rect>
+                    <rect class="simple-navicon-middle" x="0" y="9" height="3" width="24"></rect>
+                    <rect class="simple-navicon-bottom" x="0" y="16" height="3" width="24"></rect>
+                </svg>
+            </button>
+            <ul class="site-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- <header class="site-header toggle-nav" data-navstate="closed">
         <div class="container">
             <nav class="site-nav">
                 <button class="menu-button navicon">Menu</button>
                 <ul>
-                    <li><a href="#works" class="scroll">Works</a></li>
+                    <li><a href="#sandboxes" class="scroll">Sandboxes</a></li>
                     <li><h1 class="site-id"><a href="index.html"><img src="img/favicon-500x500.svg" alt="Hanna Shibata's icon linked to home" width="36px" height="36px"></a></h1></li>
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
 
         </div>
-        <!-- END CONTAINER -->
-    </header>
+
+    </header> -->
 
     <main class="site-main">
         <section class="hero-home solid-viewx">
 
             <div class="row">
-                <div class="one-half hero-title">
-                    <h6 class="eyebrow-hero">digital playground, 2025 issue</h6>
-                    <h2 class="title-home">Coded by<br>Hanna</h2>
+                <div class="frame">
+                    <div class="one-half hero-title">
+                        <h6 class="eyebrow-hero">digital playground, 2025 issue</h6>
+                        <h2 class="title-home">Coded by<br>Hanna</h2>
+                    </div>
+    
+                    <div class="one-half hero-title">
+                        <p>Hanna Shibata is a Multidisciplinary Designer and an Art Director specializing in <span>brand communication</span> and <span>print</span>. Worked and studied in <span>Tokyo</span>, <span>NYC</span>, and <span>Boston</span>, now based in&nbsp;<span>Honolulu</span>.</p>
+                        <p>Excelling in solving problems through communication strategies and creating solid brand narratives, Hanna is exploring digital realm using coding as a&nbsp;design&nbsp;tool.</p>
+                       <h3>This is Hanna&rsquo;s digital playground, coded from&nbsp;scratch.</h3>
+                    </div>
+    
+                    <!-- <h3 class="indicator"><i class="fa-solid fa-angles-down"></i></h3> -->
                 </div>
-
-                <div class="one-half hero-title">
-                    <p>Hanna Shibata is a Multidisciplinary Designer and an Art Director specializing in <span>brand communication</span> and <span>print</span>. Worked and studied in <span>Tokyo</span>, <span>NYC</span>, and <span>Boston</span>, now based in&nbsp;<span>Honolulu</span>.</p>
-                    <p>Excelling in solving problems through communication strategies and creating solid brand narratives, Hanna is exploring digital realm using coding as a&nbsp;design&nbsp;tool.</p>
-                   <h3>This is Hanna&rsquo;s digital playground, coded from&nbsp;scratch.</h3>
-                </div>
-
-                <!-- <h3 class="indicator"><i class="fa-solid fa-angles-down"></i></h3> -->
             </div>
 
 
         </section>
 
-        <div class="works-index solid-viewx scroll">
+        <div class="sandboxes-index solid-viewx scroll">
 
-            <section id="works" class="text-centerx parallax-viewx">
+            <section id="sandboxes" class="text-centerx parallax-viewx">
                 <div class="container-thumbgrid">
                     <ul class="thumbgrid">
                         <!-- div class="thumbgrid-card" is creating frames for each card -->
@@ -149,7 +181,7 @@
 
             <nav class="site-nav">
                 <ul>
-                    <li><a href="#works" class="scroll">Works</a></li>
+                    <li><a href="#sandboxes" class="scroll">Sandboxes</a></li>
                     <li><a href="index.html">Top</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
