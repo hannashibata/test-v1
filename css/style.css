@@ -374,6 +374,7 @@ img {
     color: var(--my-white);
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
+    z-index: 100;
 }
 
 .row.footer {
@@ -676,7 +677,7 @@ img {
  * corresponding with JS
  */
 
- .observe-me {
+.observe-me {
     opacity: 0;
     transition: all .75s ease-out 0.5s;
 
@@ -692,7 +693,6 @@ img {
         translate: 0 0;
     }
 }
-
 
 /* CUSTOM CSS FOR SUB PAGES */
 .title-subpage {
