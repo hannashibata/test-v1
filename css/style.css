@@ -1,7 +1,7 @@
-@charset "UTF-8";
-/* PLAYBROUD-2025 CSS (Initial Setup)
----------------------------------
-/* 
+/* ----------------------
+-------------------------
+
+CSS TABLE OF CONTENTS
 
 # GLOBAL STYLES
     # GLOBAL VARIABLES
@@ -36,44 +36,35 @@
 
 # CUSTOM STYLING
 
----------------------------------
---------------------------------- */
+-------------------------
+---------------------- */
 
 /* -------------------- */
 /* --  GLOBAL STYLES -- */
 /* -------------------- */
 
 /* GLOBAL VARIABLES */
+
 :root {
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
 
-    --my-white: rgb(235 235 235  / 1);
-    --my-white10: rgb(225 225 225  / .1);
-    --my-green: rgb(0 255 0 /1);
-    --my-green80: rgba(128 255 128 / .8);
-    --my-black100: rgb(10 10 10 / 1);
-    --my-black: rgb(10 10 10 / .8);
-    --my-black20: rgb(10 10 10 / .2);
-    --my-black30: rgb(10 10 10 / .3);
-    --my-black60: rgb(10 10 10 / .6);
-
     /* LIGHT MODE */
-    --color-body-bg: var(--my-white);
-    --color-text-body: var(--myblack);
-    --color-text-headings: var(--myblack);
+    --color-body-bg: rgb(255 255 255 /1);
+    --color-text-body: rgb(0 0 0 / .8);
+    --color-text-headings: rgb(0 0 0 /1);
 
     /* DARK MODE */
     /* --color-body-bg: rgb(0 0 0 /1);
     --color-text-body: rgb(255 255 255 / .8);
     --color-text-headings: rgb(255 255 255 /1); */
 
-    --color-a: var(--my-black100);
-    --color-a-hover: var(--my-green);
-    /* --color-a-dark: blue;
+    --color-a: blue;
+    --color-a-hover: darkblue;
+    --color-a-dark: blue;
     --color-a-darker: darkblue;
     --color-a-light: lightblue;
-    --color-a-lighter: rgb(255 255 255 / 1); */
+    --color-a-lighter: rgb(255 255 255 / 1);
     
     --color-siteheader-bg: transparent;
     --color-siteheader-a: var(--color-text-headings);
@@ -82,144 +73,105 @@
     --color-hero-headings: rgb(255 255 255 /1);
     --color-hero-text: rgb(255 255 255 /.8);
     
-    --color-sitefooter-bg: var(--my-black100);
-    --color-sitefooter-text: var(--my-white);
-    --color-sitefooter-headings: var(--my-white);
-    --color-sitefooter-a: var(--my-green);
+    --color-sitefooter-bg: rgb(100 100 100 /1);
+    --color-sitefooter-text: rgb(255 255 255 /.8);
+    --color-sitefooter-headings: rgb(255 255 255 /1);
+    --color-sitefooter-a: rgb(255 255 255 /1);
 
     /*  DEFINE ALL FONTS USED HERE */
-    --font-serif: 'pp_editorial_oldregular', Georgia, serif;
-    --font-sans-serif: 'karla', sans-serif, system-ui;
+    --font-body: system-ui, Helvetica, Arial, sans-serif;
+    --font-heading: system-ui, Helvetica, Arial, sans-serif;
 
     /* SIZING UNITS */
     /* --container-width: 1200px; */
-    --container-width: 95vw;
+    --container-width: 70vw;
     --unit-small: 1em;
     --unit-medium: 2em;
     --unit-large: 4em;
+
 }
 
 /* GLOBAL RESET */
+
+/* CHANGE BOX-SIZING FOR ALL TO BORDER-BOX */
 * { box-sizing: border-box; }
-body { margin: 0;}
+
+/* REMOVE THE DEFAULT 8px MARGIN ON THE BODY */
+body { margin: 0; }
+
 
 /* GLOBAL COLORS */
-body { 
+body {
+
+    /* SET THE COLOR OF THE MAIN BODY BACKGROUND */
     background-color: var(--color-body-bg);
-    /* background-color:rgb(177, 177, 177); */
+
+    /* SET THE COLOR OF THE MAIN BODY TEXT */
+    color: var(--color-text-body);
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
+
+    /* SET THE COLOR OF ALL HEADINGS H1-etc */
     color: var(--color-text-headings);
 }
 
 a {
+    /* SET THE COLOR OF ALL TEXT LINKS */
     color: var(--color-a);
-    text-decoration: none;
 
+    /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
     &:hover {
         color: var(--color-a-hover);
-    } 
+    }
 }
 
-dt {
-    color: var(--my-black60)
-}
-
-/* GLOBAL TYPOGRAPHY
- * Reference -------------------
-    62.5%   => 10px 
-    68.2%   => 11px
-    75%     => 12px
-    81.3%   => 13px
-    87.5%   => 14px
-    100%    => 16px / 1em
-    112.5%  => 18px
-    125%    => 20px
-
-   Traditional Typographic Scale (48, 36, 24, 21, 18, 16)
---------------------------------- */
-
+/* GLOBAL TYPOGRAPHY */
 body {
-	font-family: var(--font-sans-serif);
-    font-weight: 300;
-	font-size: 88.75%;  /* 14px */
-	line-height: 1.4;
-	color: var(--my-black);
+
+    /* SET THE FONT FOR ALL MAIN BODY TEXT */
+    font-family: var(--font-body);
+
+    /* SET THE LEADING (LINE-HEIGHT) FOR ALL BODY TEXT */
+    line-height: 1.4;
 }
 
- h1, h2, h3, h4, h5, h6 {
-    margin: 0.5em 0;
- }
-
- h1, h2, h3 {
-    font-family: var(--font-serif);
+/* SET THE FONT & MARGIN FOR ALL HEADINGS */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin: .4em 0;
 }
 
-h4, h5 {
-    font-family: var(--font-sans-serif);
-    margin: .5em 0;
-    font-weight: 600;
-}
-
+/* SET H1 FONT SIZE & LEADING */
 h1 {
     font-size: 3em;
     line-height: 1.1;
 }
 
+/* SET H2 FONT SIZE & LEADING */
 h2 {
     font-size: 2em;
     line-height: 1.2;
 }
 
+/* SET H3 FONT SIZE & LEADING */
 h3 {
     font-size: 1.5em;
     line-height: 1.3;
 }
 
-h4 {
-    /* 18px / 16px = 1.125em */
-    font-size: 1.25em;
-    line-height: 1.4;
-}
-
-h5 {
-    /* 16px / 16px = 1em */
-    font-size: 1em;
-    line-height: 1.5;
-}
 
 p {
-    /* 14px / 16px = 1em */
-    font-size: 0.875em;
-    line-height: 1.4;
-    font-weight: 200;
-    margin: 1em 0;
-    padding: 0;
-    max-width: 66ch;
+    /* LIMIT THE WIDTH OF ALL PARAGRAPHS */
+    max-width: 65ch;
+
+    /* NEW SCHOOL WIDOW SLAYER */
     text-wrap: pretty;
-}
 
-dt {
-    font-family: var(--font-serif);
 }
-
-dd {
-    font-family: var(--font-sans-serif);
-    text-wrap: pretty;
-}
-
-dt, dd {
-    /* 12px */
-    font-size: 0.75em;
-    max-width: 38em;
-}
-
-/* dd {
-    padding: 0, 0, 0 -10em;
-} */
 
 /* GLOBAL MEDIA */
+
 /* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
 img {
     max-width: 100%;
@@ -243,15 +195,6 @@ img {
     }
 }
 
-/* .full-width {
-    max-width: none;
-    width: 100%;
-} */
-
-/* .horiz-center {
-    margin-left: auto;
-    margin-right: auto;
-} */
 
 /* ------------------- */
 /* -----  LAYOUT ----- */
@@ -269,7 +212,7 @@ body {
 @media (min-width: 768px) {
     body {
         /* Set the medium screens and highr font size to 16px */
-        /* font-size: 100%;  */
+        font-size: 100%; 
     }
 }
 
@@ -282,42 +225,14 @@ body {
     }
 }
 
-/* @media ( min-width: 1250px) {
-    body {
-        font-size: 112.5%; 
-    }
-    .container {
-        max-width: 1200px;
-    }
-    .container-thumbgrid {
-        max-width: 90vw;
-    }
-} */
-
-/* IMAGES */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 /* CONTAINER */
 .container {
+    /* SET THE MAX WIDTH OF YOUR SITE (eg 1200px) */
     max-width: var(--container-width);
+
+    /* CENTER THE CONTAINER HORIZONTALLY*/
     margin-left: auto;
     margin-right: auto;
-    /* margin: 0 auto; */
-    padding: 2% 0.5%;
-}
-
-/* .container-thumbgrid {
-    margin: 0 auto;
-    padding: 2% 4%;
-} */
-
-.container-img {
-    margin: 0;
-    padding: 2%;
-    text-align: center;
 }
 
 /* GRID */
@@ -388,23 +303,21 @@ img {
 
 }
 
-/* PLACE SITE-ID LEFT AND NAV RIGHT ON LARGER SCREENS */
-@media (min-width: 768px) {
-    .site-header .container {
-        /* by default, this is display: box; and since this is inside container, I just need to tell it the following: */
-        justify-content: space-around;
-    }
+/* FOR DEMO PURPOSES */
+.demo > * {
+    background-color: #444;
+    padding: 1em;;
+    text-align: center;
 }
 
-/* ----------------------------------------------- */
-/* SITE STRUCTURE  */
-/* ----------------------------------------------- */
+/* ------------------- */
+/* -  SITE STRUCTURE - */
+/* ------------------- */
 
 /* SITE HEADER */
 .site-header {
     background-color: var(--color-siteheader-bg);
-    padding: 1em 0 1em 0;
-
+    
     /* PUT ALL HEADER CHILDREN SIDE-BY-SIDE AND VERT CENTERED */
     @media (min-width: 768px) {
         display: flex;
@@ -419,7 +332,7 @@ img {
     a {
         text-decoration: none;
     }
-
+    
     /* SITE LOGO */
     .site-logo {
 
@@ -468,16 +381,16 @@ img {
 }
 
 /* TOGGLE MENU */
+
 /*HIDE MENU BUTTON IF NOT USING TOGGLE MENU  */
-/* QUESTION: toggle menu not showing */
 .site-menu-button {
     display: none;
 }
 
 .toggle-menu {
 
-    --color-togglemenu-bg: var(--my-black100);
-    --color-togglemenu-text: var(--my-white);
+    --color-togglemenu-bg: black;
+    --color-togglemenu-text: white;
 
     display: flex;
     flex-direction: row-reverse;
@@ -611,476 +524,194 @@ img {
     }
 }
 
-/* SITE HEADER & FOOTER */
-.site-header a:hover,
-.site-footer a:hover {
-    color: var(--my-green);
-    text-decoration: none;
-}
+/* PLACE SITE HEADER ON TOP OF HERO ON LARGE SCREENS */
+.site-header.on-top-of-hero {
 
-.site-header,
-.site-footer {
+    /* RENDER HEADER ON TOP OF HERO */
     position: absolute;
     width: 100%;
-    z-index: 100;
-}
-.social-links {
-    letter-spacing: 2px;
+
+    /* SET SITE HEADER LINK COLOR ON LARGE SCREENS */
+
+    --color-siteheader-a: var(--color-hero-headings);
+    a {
+        color: var(--color-siteheader-a);
+    }
+
+    /* ADD MORE SPAGE ON TOP FOR THE ABSOLUTE HEADER */
+    & + .site-main > .hero {
+        padding-top: calc(4em + var(--unit-large));
+    }
+
 }
 
-/* ID AREA */
-.site-id {
-    font-size: 1.5em;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-}
 
-/* SITE NAV FOR HEADER & FOOTER */ 
-.site-nav {
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-}
 
-.site-nav ul {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* SITE MAIN */
+.site-main {
 
-.site-nav a {
-    padding: 1em;   
-}
-
-/* SOCIAL NAV */ 
-.site-nav .menu-button {
-    display: none;
 }
 
 /* SECTIONS */
-.hero-home,
-.about-section {
-    width: 100vw;
-    height: 100%;
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center; */
-    padding: 12em 0 12em 0;
+section {
+    padding: var(--unit-large) var(--unit-medium);
 }
 
-/* HOME */
-/* .solid-view {
-    background-color:rgb(177, 177, 177);
-    border: 2px solid blue;
-    background-image:
-    radial-gradient(at 63% 84%, rgb(124 124 124 /1) 0px, transparent 50%),
-    radial-gradient(at 73% 34%, rgb(102, 90, 128) 0px, transparent 50%),
-    radial-gradient(at 47% 7%, rgb(119 137 137 /1) 0px, transparent 50%),
-    radial-gradient(at 81% 65%, rgb(139, 122, 106) 0px, transparent 50%),
-    radial-gradient(at 0% 40%, var(--my-green) 0px, transparent 50%),
-    radial-gradient(at 22% 59%, var(--my-magenta) 0px, transparent 50%);
-    background-size: 300% 300%;
-    animation: gradient 8s ease infinite;
-} */
-
-/* .solid-view,
-.solid-view-sub {
-    background-attachment: fixed;     
-}
-
-@keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  } */
-
-.sandboxes .frame {
-    margin-inline: auto;
-}
-
-.frame {
-    border: 2px solid red;
-    background-color: red;
-    border-radius: 5px;
-    /* margin: 0 auto; */
-    padding: 10vh 5vw;
-    width: 95vw;
-    /* min-height: 50svh; */
-    margin-inline: auto;
-}
-
-.hero-title {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    color: var(--my-black);
-    animation-name: fadein-up;
-    animation-duration: 2s;
-}
-
-@keyframes fadein-up {
-    0%    { opacity: 0;
-            transform: translateY(1em);}
-    /* 10%   { opacity: 0;} */
-    100% { opacity: 1;}
-}
-
-.hero-home .row {
-    /* width: 85%; */
-    border: 2px solid blue;
-}
-
-.hero-home .eyebrow-hero {
-    font-size: 1vw;
-    color: var(--my-black);
-    margin: 1em 0 0.5em 0;
-}
-
-.hero-home .title-home {
-    /* font-size: clamp(4em, 8vw, 8vw); */
-    font-size: 8vw;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.hero-home .hero-title h3 {
-    font-size: 1.8vw;
-}
-
-.title-sub {
-    font-size: 6em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 0 0 .5em 0;
-}
-
-.hero-home .hero-title p {
-    font-size: 1.5vw;
-    line-height: 1.9vw;
-    margin-bottom: 2.2vw;
-    margin-top: 0.9vw;
-}
-
-.hero-home .hero-title p span {
-    font-family: 'ppeditorialold-italic', Georgia, serif;
-    font-style: italic;
-}
-
-@media (max-width: 767px) {
-    
-    .hero-home .eyebrow-hero {
-        font-size: 1em;
-    }
-
-    .hero-home .title-home {
-        font-size: 6em;
-    }
-
-    .hero-home .hero-title h3 {
-        font-size: 1.3125em;
-    }
-    .hero-home .hero-title p {
-        font-size: 1em;
-        line-height: 1.4;
-        margin-top: 1em;
-        margin-bottom: 1em;
-   }
-}
-
-@media (min-width: 768px) {
-    /* .sandboxes-index {
-        min-height: 100vh;
-        width: 100vw;
-        padding: 6em 0 6em 0;
-    } */
-}
-
-/* THUMBGRID */
-.thumbgrid {
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.thumbgrid li {
-    list-style: none;
-    width: 49.5%;
-    padding-bottom: 0.8%;
-    margin-bottom: 2.5%;
-}
-
-@media (min-width: 768px) {
-    .thumbgrid li {
-        width: 49.5%; 
-        /* width: 32.75%;        three cards row */
-        /* width: 49.5%;         two cards row */
-        /* width: 45%;        two cards row */
-    }
-}
-
-.thumbgrid-card {
-    border: 1px solid blue;
-    border-radius: 2.5%;
-    filter: brightness(.9);
-    max-height: 40svh;
-    overflow: hidden;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.thumbgrid a img {
-    /* border: 1px solid red; */
+/* HERO SECTION */
+.hero {
+    background-color: var(--color-hero-bg);
+    color: var(--color-hero-text);
     display: block;
-    transition: all ease-in-out 0.2s;
-    border: 1px solid rgb(255, 255, 255 /0);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* filter: brightness(.9); */
-    transform-origin: center;
-}
+    place-items: center;
 
-.thumbgrid-card:hover {
-    box-shadow: 0 0 24px 0 var(--my-black60);
-}
+    /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
+    padding-top: calc(4em + var(--unit-large));
 
-.thumbgrid a:hover img {
-    filter: brightness(1.05);
-    border: 1px solid rgb(0, 0, 0 /.3);
-    transform: scale(1.05, 1.05);
-}
-
-/* CUSTOM CSS FOR ABOUT SECTION */
-.about {
-    animation: fadeandscaleIn 0.4s ease-out forwards;
-}
-
-@keyframes fadeandscaleIn {
-    0% {
-      transform: scale(0.97) translateY(-5px);
-      opacity: 0;
+    h1 {
+        font-size: 4em;
+        line-height: 1;
+        text-wrap: balance;
     }
-    100% {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-    }
-  }
 
-.about a {
-    color: var(--my-black);
-}
-
-.column.two-thirds.about,
-.column.one-third.about {
-    text-align: left;
-    margin: 0;
-}
-
-#about h2 {
-    text-transform: uppercase;
-    margin: 0;
-    font-size: 4em;
-}
-
-.subhead {
-    max-width: 28ch;
-    margin-bottom: 1em;
-}
-
-.eyebrow,
-.eyebrow-hero {
-    text-transform: uppercase;
-    margin-bottom: 0;
-    color: var(--my-white);
-}
-
-.resume {
-    margin: 0;
-    padding: 0;
-}
-
-.p-about {
-    font-size: 1.5em;
-    letter-spacing: 0px;
-    line-height: 1.3;
-    margin-bottom: 1em;
-}
-
-/* SCROLL TRIGGERED ANIMATION
- * corresponding with JS
- */
-
-.observe-me {
-    opacity: 0;
-    transition: all .75s ease-out 0.5s;
-
-    &[data-viewstate="active"] {
-        opacity: 1;
-    }
-}
-.animate-from-bottom {
-    translate: 0 400px;
-    transition-delay: .5s;
-
-    &[data-viewstate="active"] {
-        translate: 0 0;
+    h1, h2, h3 {
+        color: var(--color-hero-headings);
     }
 }
 
-/* CUSTOM CSS FOR SUB PAGES */
-.title-subpage {
-    /* width: 100%; */
-    height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16em 0 8em 0;
-    margin: auto;
-    text-align: center;
-    color: var(--my-black);
-    animation-name: fadein-up;
-    animation-duration: 2s;
-}
+/* SITE FOOTER */
+.site-footer {
+    background-color: var(--color-sitefooter-bg);
+    color: var(--color-sitefooter-text);
 
-@media ( max-width: 767px ) {
-    .title-subpage {
-        width: 100%;
-        height: 50vh;
-        padding: 24em 4em;
-    }
-}
-
-#content {
-    /* QUESTION: how can I add filter background drop to hero? */
-    background-color: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-}
-
-.project-title {
-    text-transform: uppercase;
-}
-
-.img-wrapper {
-    margin: 2em 0;
-}
-
-.work-story {
-    margin: 8em 0;
-}
-
-.solid-view-sub {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: auto;
-    background-size: cover;
-    background-position: center;
-}
-
-.project-metadata {
-    font-size: 0.75em;   /* 12px */
-    line-height: 1.8;
-    list-style: none;
-    padding-left: 0.25em;
-}
-
-.work-story .one-half ul,
-.work-story .one-third ul {
-    font-size: 0.75em;   /* 12px */
-    font-weight: 200;
-    margin: 1em 0;
-    padding-left: 1em;
-    max-width: 38em;
-    list-style-position: outside;
-}
-
-
-/* HERO IMAGES FOR SUBPAGES */
-/* QUESTION: how can I make the image responsive in different sizes? */
-/* @media ( min-width: 768px ) {
-    .solid-view-sub {
-        background-size: cover;
-    }
-} */
-
-.solid-view-type {
-    background-image: url(../work_01-typeandprotocol/img/typeandprotocol-hero-3300x2550.jpg);
-}
-
-.solid-view-hspl {
-    background-image: url(../work_02-hspl/img/hspl-mock-hero-1600x900.jpg);
-}
-
-.solid-view-criminal {
-    background-image: url(../work_03-criminalspinoff/img/criminal-hero.jpg);
-}
-
-.solid-view-fujita {
-    background-image: url(../work_04-sneilfujita/img/fujita_hero_1920x1440.jpg);
-}
-
-
-/* CUSTOM STYLING FOR FOOTER */
-footer {
-    padding: 6em 0 1em 0;
     height: 80vh;
     margin-top: -90px;
     background-color: black;
     color: var(--my-white);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    z-index: 100;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+
+
+    /* .row.footer {
+        margin-bottom: 8em;
+    }
+    
+    .social-links {
+        letter-spacing: 2px;
+    } */
+
+    /* ADD SOME GENERAL PADDING AROUND THE FOOTER */
+    padding: var(--unit-medium);
+
+    h1, h2, h3 {
+        color: var(--color-sitefooter-headings);
+    }
+
+    a{
+        color: var(--color-sitefooter-a);
+    }
+
+    .site-footer-nav {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding:0;
+        }
+    }
+
 }
 
-footer .frame {
-    background-color: transparent;
-}
 
-footer a {
-    color: var(--my-white);
-}
-
-footer .row {
-    margin-bottom: 8em;
-}
-
-footer h2 {
-    text-transform: uppercase;
-    margin: 0;
-    font-size: 4em;
-}
-
-
-/* ----------------------------------------------- */
-/* UI COMPONENTS */
-/* ----------------------------------------------- */
+/* -------------------- */
+/* --  UI COMPONENTS -- */
+/* -------------------- */
 
 /* BUTTONS */
-.a-button {
-    background-color: var(--my-black60);
-    border-radius: 2px;
-    color: var(--my-white);
-    padding: 0.25em 1em;
+.button {
+    /* SET THE BUTTON COLORS */
+    border: 1px solid var(--color-a-dark);
+    background-color: var(--color-a-dark);
+    color: white;
+
+    /* ENABLE BOX MODEL STYLING */
+    display: inline-block;
+    padding: var(--unit-small);
+    margin: var(--unit-small) 0;
+
+    /* GET RID OF THE UNDERLINE */
+    text-decoration: none;
+
+    + .button {
+        margin-left: var(--unit-small);
+    }
+
+    &:hover {
+        color: #fff;
+        background-color: var(--color-a-darker);
+        border-color: var(--color-a-darker);
+
+    }
+
+    /* LIGHT BUTTON VARIANT */
+    &.light {
+        border-color: var(--color-a-light);
+        background-color: var(--color-a-light);
+        color: var(--color-a-darker);
+
+        &:hover {
+            border-color: var(--color-a-lighter);
+            background-color: var(--color-a-lighter);
+        }
+    }
+
 }
 
-.a-button:hover {
-    background-color: var(--my-green);
-    color: var(--my-black);
+
+/* -------------------- */
+/* --    ANIMATION   -- */
+/* -------------------- */
+
+/* ADD SUPPORT FOR SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
 }
+
+
+/* -------------------- */
+/* -- CUSTOM STYLING -- */
+/* -------------------- */
+
+/* CUSTOM STYLING FOR HOME */
+
+.hero-home .frame {
+    border: 2px solid red;
+    background-color: red;
+    border-radius: 32px;
+    margin: 3em 0 3em 0;
+    padding: 12em;
+    width: 95vw;
+    min-height: 95svh;
+    display: grid;
+    place-items: center;
+}
+
+#sandboxes,
+#about {
+    height: 100svh;
+}
+
+#sandboxes h2,
+#about h2 {
+    text-transform: uppercase;
+    text-align: center;
+    z-index: -10;
+}
+
+.sandbox-thumb {
+
+}
+
+
+
 
 
 

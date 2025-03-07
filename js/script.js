@@ -1,24 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
+// console.log("I am linked");
 
-    //TOGGLE NAV MOBILE MENU FOR SMALL SCREENS
-    const menubutton = document.querySelector('.menu-button');
-    const menunav = document.querySelector('.toggle-nav');
-    menubutton.addEventListener('click', function () {
-        if (menunav.getAttribute('data-navstate') === 'open') {
-            // If true do this
-            menunav.setAttribute('data-navstate', 'closed');
-        } else {
-            // else (if false) do this
-            menunav.setAttribute('data-navstate', 'open');
-        };
-    })
+// TOGGLE MENU
+const toggleMenu = document.querySelector('.toggle-menu');
+const toggleMenuButton = document.querySelector('.site-menu-button');
 
-    //TOGGLE NAV MOBILE MENU SCROLL LINKS FOR SMALL SCREENS
-    var stickynavlinks = document.querySelectorAll(".sticky nav a");
-    var j;
-    for (j = 0; j < stickynavlinks.length; j++) {
-        stickynavlinks[j].onclick = function() {
-            menunav.setAttribute('data-navstate', 'closed');
-        };
-    };
+toggleMenuButton.onclick = function() {
+  
+  if (toggleMenu.getAttribute('data-menustate') === 'closed') {
+    
+    // if closesd, open
+    toggleMenu.setAttribute('data-menustate','open');
+  
+  } else {
+    
+    // else, close it
+    toggleMenu.setAttribute('data-menustate','closed');
+    
+  } 
+  
+};
+
+// CLOSE THE TOGGLE MENU WHENEVER A USESR CLICKS ON A MENU LINK
+const toggleMenuLinks = document.querySelectorAll('.toggle-menu a');
+toggleMenuLinks.forEach((el) => {
+  el.onclick = () => {
+    toggleMenu.setAttribute('data-menustate','closed');
+  }
 });
