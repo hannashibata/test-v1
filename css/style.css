@@ -39,11 +39,55 @@ CSS TABLE OF CONTENTS
 -------------------------
 ---------------------- */
 
-/* -------------------- */
-/* --  GLOBAL STYLES -- */
-/* -------------------- */
+/* ----------------------------------------------- */
+/* GLOBAL STYLES  */
+/* ----------------------------------------------- */
 
-/* GLOBAL VARIABLES */
+/* GLOBAL VARIABLES
+ * Definitions for commonly used colors, typeface, sizing-units.
+/* -----------------------------------------------  */
+
+@font-face {
+    font-family: 'ppeditorial-old-regular';
+    src: url('../fonts/ppeditorialold-regular-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-italic';
+    src: url('../fonts/ppeditorialold-italic-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-ultrabold';
+    src: url('../fonts/ppeditorialold-ultrabold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-ultrabolditalic';
+    src: url('../fonts/ppeditorialold-ultrabolditalic-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* QUESTION: I'm confused with Google fonts?? */
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* <weight>: Use a value from 200 to 800
+<uniquifier>: Use a unique and descriptive class name
+
+.karla-<uniquifier> {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
 
 :root {
 
@@ -53,11 +97,6 @@ CSS TABLE OF CONTENTS
     --color-body-bg: rgb(255 255 255 /1);
     --color-text-body: rgb(0 0 0 / .8);
     --color-text-headings: rgb(0 0 0 /1);
-
-    /* DARK MODE */
-    /* --color-body-bg: rgb(0 0 0 /1);
-    --color-text-body: rgb(255 255 255 / .8);
-    --color-text-headings: rgb(255 255 255 /1); */
 
     --color-a: blue;
     --color-a-hover: darkblue;
@@ -79,8 +118,8 @@ CSS TABLE OF CONTENTS
     --color-sitefooter-a: rgb(255 255 255 /1);
 
     /*  DEFINE ALL FONTS USED HERE */
-    --font-body: system-ui, Helvetica, Arial, sans-serif;
-    --font-heading: system-ui, Helvetica, Arial, sans-serif;
+    --font-heading: 'ppeditorial-old-ultrabold', 'Georgia', serif;
+    --font-body: 'Karla,' system-ui, 'Helvetica', 'Arial', sans-serif;
 
     /* SIZING UNITS */
     /* --container-width: 1200px; */
@@ -711,7 +750,20 @@ html {
 }
 
 
-
+.card {
+    border: 1px solid blue;
+    border-radius: 5%;
+    filter: brightness(.9);
+    overflow: hidden;
+    /* box-shadow: 0 4px 8px 0 var(--my-black20); */
+    transition: 0.3s;
+    /* margin: 30px auto;  */
+    /* width: 300px;
+    height: 600px; */
+    object-fit: cover;
+    cursor: pointer;
+    /* position: relative; */
+}
 
 
 
