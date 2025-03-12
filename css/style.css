@@ -117,8 +117,8 @@ CSS TABLE OF CONTENTS
     --font-body: "Karla", system-ui, "Helvetica", "Arial";
 
     /* SIZING UNITS */
-    /* --container-width: 1200px; */
-    --container-width: 70vw;
+    --container-width: 1200px;
+    /* --container-width: 70vw; */
     --unit-small: 1em;
     --unit-medium: 2em;
     --unit-large: 4em;
@@ -369,13 +369,12 @@ body {
     /* border: 1px solid  red; */
     
     /* PUT ALL HEADER CHILDREN SIDE-BY-SIDE AND VERT CENTERED */
-    @media (min-width: 768px) {
-        /* border: 1px solid green; */
+    /* @media (min-width: 768px) {
         display: flex;
         justify-content: space-between;
         align-items: center;
     
-    }
+    } */
 
     /* ADD SOME GENERAL SPACING AROUND THE HEADER */
     padding: var(--unit-small);
@@ -574,29 +573,6 @@ body {
     z-index: 100;
     }
 }
-
-/* PLACE SITE HEADER ON TOP OF HERO ON LARGE SCREENS */
-.site-header.on-top-of-hero {
-
-    /* RENDER HEADER ON TOP OF HERO */
-    position: absolute;
-    width: 100%;
-
-    /* SET SITE HEADER LINK COLOR ON LARGE SCREENS */
-
-    --color-siteheader-a: var(--color-hero-headings);
-    a {
-        color: var(--color-siteheader-a);
-    }
-
-    /* ADD MORE SPAGE ON TOP FOR THE ABSOLUTE HEADER */
-    & + .site-main > .hero {
-        padding-top: calc(4em + var(--unit-large));
-    }
-
-}
-
-
 
 /* SITE MAIN */
 .site-main {
@@ -878,6 +854,17 @@ html {
     grid-row: 6 / span 2;
 }
 
+#sandboxes .container {
+    position: relative;
+}
+
+.fixed-title {
+    position: sticky;
+    top: 50%;
+    translate: 0 -50%;
+
+}
+
 
 .card {
     border: 1px solid blue;
@@ -887,10 +874,16 @@ html {
     /* box-shadow: 0 4px 8px 0 var(--my-black20); */
     transition: 0.3s;
     /* margin: 30px auto;  */
-    /* width: 300px;
-    height: 600px; */
-    object-fit: cover;
     cursor: pointer;
+}
+
+.card img {
+    display: block;
+
+    /* For cases that images are in different shapes or the parent dictate the shape of cards */
+    /* object-fit: cover;
+    width: 100%;
+    height: 100%; */
 }
 
 #about .two-thirds h2 {
