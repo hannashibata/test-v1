@@ -91,9 +91,10 @@ CSS TABLE OF CONTENTS
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
 
-    --color-body-bg: rgb(235 235 235  /1);
-    --color-text-body: rgb(25 25 25 / .8);
-    --color-text-headings: rgb(25 25 25 / .8);
+    --color-body-bg: rgb(235 235 235  /.8);
+    --color-black: rgb(25 25 25 / .8);
+    --color-black50: rgb(25 25 25 / .5);
+    --color-white: rgb(235 235 235 / .8);
 
     --color-a: rgb(0 0 0 / 1);
     --color-a-hover: rgb(0 255 0 /1);
@@ -117,8 +118,8 @@ CSS TABLE OF CONTENTS
     --font-body: "Karla", system-ui, "Helvetica", "Arial";
 
     /* SIZING UNITS */
-    --container-width: 1200px;
-    /* --container-width: 70vw; */
+    /* --container-width: 1200px; */
+    --container-width: 70vw;
     --unit-small: 1em;
     --unit-medium: 2em;
     --unit-large: 4em;
@@ -141,13 +142,13 @@ body {
     background-color: var(--color-body-bg);
 
     /* SET THE COLOR OF THE MAIN BODY TEXT */
-    color: var(--color-text-body);
+    color: var(--color-black);
 }
 
 h1, h2, h3 {
 
     /* SET THE COLOR OF ALL HEADINGS H1-etc */
-    color: var(--color-text-headings);
+    color: var(--color-black);
 }
 
 a {
@@ -774,8 +775,8 @@ html {
 }
 
 .slide-up {
-    translate: 0 00px;
-    transition-delay: .25s;
+    translate: 0 200px;
+    transition-delay: .5s;
 
     &[data-viewstate="active"] {
         translate: 0 0;
@@ -789,15 +790,99 @@ html {
 /* CUSTOM STYLING FOR HOME */
 
 .frame {
-    border: 2px solid gray;
-    background-color: gray;
+    /* border: 2px solid gray;
+    background-color: gray; */
     border-radius: 32px;
-    margin: 6em 0 3em 0;
-    padding: clamp(2em, 6vh, 6em) clamp(2em, 6vw, 6em);
+    margin: 3em 0;
+    padding: 8svh 8vw;
+    /* padding: clamp(2em, 6vh, 6em) clamp(2em, 6vw, 6em); */
     /* width: 95vw; */
     /* min-height: 85svh; */
     /* display: grid;
     place-items: center; */
+}
+
+.frame h2,
+.frame p {
+    color: var(--color-white);
+}
+
+.load-expand {
+    position: relative;
+    background-color: transparent;
+    border: none;
+}
+
+.load-expand::after {
+    content: "";
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    translate: 0 -50%;
+    background-color: var(--color-black50);
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    /* padding: 0; */
+    margin-inline: auto;
+    interpolate-size: allow-keywords;
+    animation: load-expand 1s ease-out forwards; 
+}
+
+.load-expand > * {
+    opacity: 0;
+    position: relative;
+    z-index: 200;
+    /* display: none; */
+    /* scale: 0; */
+    animation: load-expand-content 1s ease-out forwards; 
+}
+
+@keyframes load-expand {
+
+    0% {
+        width: 10px;
+        height: 10px;
+        /* scale: 0; */
+        border-radius: 100%;
+        /* padding: 0; */
+        /* margin-inline: auto; */
+    }
+
+    20% {
+        width: 200px;
+        height: 200px;
+        /* scale: 1; */
+        border-radius: 100%;
+        /* padding: 0; */
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        /* padding: 0; */
+        /* margin-inline: auto; */
+    }
+}
+
+@keyframes load-expand-content {
+
+    0% {
+        opacity: 0;
+    }
+
+
+    99% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .hero-home .frame h2 span {
@@ -884,6 +969,14 @@ html {
     /* object-fit: cover;
     width: 100%;
     height: 100%; */
+}
+
+#about h2,
+#about h4,
+#about p,
+#about dl,
+#about a {
+    color: var(--color-white);
 }
 
 #about .two-thirds h2 {
