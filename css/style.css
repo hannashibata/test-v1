@@ -75,26 +75,15 @@ CSS TABLE OF CONTENTS
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Karla';
-    /* font-stretch: PERCENTAGE_RANGE_LOW_TO_HIGH;  */
-    /* Note that font-stretch is a % of normal width */
-    font-weight: normal;
-    font-style: normal;
-    src: url(FONT_FILE_NAME.woff2) format('woff2');
-  }
-
-/* @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap'); */
-
 /* <weight>: Use a value from 200 to 800
 <uniquifier>: Use a unique and descriptive class name
 */
-/* .karla-variable {
+.karla-variable {
   font-family: 'Karla', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-}  */
+} 
 
 :root {
 
@@ -804,7 +793,7 @@ html {
     /* border: 2px solid gray;
     background-color: gray; */
     border-radius: 32px;
-    margin: 3em 0;
+    /* margin: 3em 0; */
     padding: 8svh 8vw;
     /* padding: clamp(2em, 6vh, 6em) clamp(2em, 6vw, 6em); */
     /* width: 95vw; */
