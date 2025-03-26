@@ -1019,33 +1019,45 @@ html {
 }
 
 /* CUSTOM STYLING FOR SUBPAGES */
+.hero-sub {
+    margin: 0;
+    padding: 0;
+}
 .title-subpage {
     /* width: 100%; */
-    height: 30vh;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16em 0 8em 0;
-    margin: auto;
+    /* padding: 6em 0 6em 0; */
+    margin: var(--unit-medium);
     text-align: center;
     color: var(--my-black);
     /* animation-name: fadein-up;
     animation-duration: 2s; */
 }
 
+.title-subpage h2 {
+    text-transform: uppercase;
+    font-family: var(--font-serif-bold);
+    font-weight: normal;
+    font-feature-settings: "dlig" 1;
+    font-size: 3.5em;
+}
+
 @media ( max-width: 767px ) {
     .title-subpage {
         width: 100%;
-        height: 50vh;
+        height: 85vh;
         padding: 24em 4em;
     }
 }
 
 #casestudy {
     /* QUESTION: how can I add filter background drop to hero? */
-    background-color: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    background-color: transparent;
+    /* -webkit-backdrop-filter: blur(5px); */
+    /* backdrop-filter: blur(5px); */
 }
 
 .project-title {
@@ -1064,14 +1076,19 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 70vh;
     width: auto;
     background-size: cover;
     background-position: center;
+
+/* This won't work on safari: refactor to position-fixed */
+    background-attachment: fixed;
 }
 
 .fixed-hero-criminal {
     background-image: url(../work-criminalspinoff/img/criminal_hero_1920x1080-75.webp);
+    width: 100%;
+    /* height: 30svh; */
 }
 
 .project-metadata {
