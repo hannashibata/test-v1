@@ -163,6 +163,7 @@ a {
     /* SET THE COLOR OF ALL TEXT LINKS */
     color: var(--color-a);
     text-decoration: none;
+    font-weight: 450;
 
     /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
     &:hover {
