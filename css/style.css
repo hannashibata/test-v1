@@ -89,16 +89,21 @@ CSS TABLE OF CONTENTS
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
 
-    --color-body-bg: rgb(235, 235, 215);
-    --color-black: rgb(25 25 25 / .8);
-    --color-black50: rgba(108, 70, 70, 0.5);
+    /* --color-body-bg: rgb(235, 235, 215); */
+    /* --color-body-bg: rgb(242 242 230 /	1); */
+    --color-body-bg: rgb(245, 245, 238);
+    --color-black: rgb(25 25 25 / .85);
+    --color-black50: rgba(108 70 70, .5);
     --color-black60: rgb(25 25 25 / .6);
     --color-white: rgb(235 235 235 / .9);
-    --color-yellow: rgb(255 255 0/ 1);
+    /* --color-yellow: rgb(255 255 0/ 1); */
+    --color-yellow: rgb(255 238 0 /1);
+    /* #FFEE00; */
 
     --color-a: rgb(0 0 0 / 1);
     /* --color-a-hover: rgb(0 255 0 /1); */
-    --color-a-hover: rgb(0 0 255 /1);
+    --color-a-hover: rgb(0 17 255 /1);
+    /* #0011ff */
 
     --color-siteheader-bg: transparent;
     --color-siteheader-a: var(--color-text-headings);
@@ -205,7 +210,7 @@ h4 {
     font-size: 1.25em;
     line-height: 1.2;
     font-family: var(--font-body);
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
 }
 
@@ -226,7 +231,7 @@ p {
 /* GLOBAL MEDIA */
 
 /* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
-img {
+img, video {
     max-width: 100%;
     height: auto; 
 }
@@ -381,7 +386,7 @@ body {
     } */
 
     /* ADD SOME GENERAL SPACING AROUND THE HEADER */
-    padding: var(--unit-small);
+    padding: var(--unit-medium);
 
    /* REMOVE LINK UNDERLINES */
     a {
@@ -580,7 +585,8 @@ body {
 
 /* SITE MAIN */
 .site-main {
-
+    /* border: 2px solid red; */
+    /* padding-bottom: 16em; */
 }
 
 /* SECTIONS */
@@ -858,7 +864,7 @@ html {
 }
 
 .hero-home .frame p span {
-    font-style: italic;
+    font-weight: 400;
     /* font-family: var(--font-serif-regularitalic);
     font-feature-settings: "dlig" 1;
     font-size: 1.25vw; */
@@ -1013,7 +1019,6 @@ html {
     position: sticky;
     top: 50%;
     translate: 0 -50%;
-
 }
 
 
@@ -1071,6 +1076,10 @@ html {
 }
 
 /* CUSTOM STYLING FOR SUBPAGES */
+.casestudy .row {
+    margin: calc(var(--unit-large) * 2) 0;
+}
+
 .hero-sub {
     margin: 0;
     padding: 0;
@@ -1129,13 +1138,21 @@ html {
     font-family: var(--font-serif-regularitalic);
 }
 
+.video-wrapper {
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    border-radius: 8px;
+    max-width: 100%;
+    margin-bottom: 8em;
+    /* width: calc(100% + 6px); */
+    /* height: calc(100% + 2px); */
+    /* margin: -3px -1px; */
+}
 
 .img-wrapper {
     margin: 2em 0;
-}
-
-.work-story {
-    margin: 8em 0;
 }
 
 .fixed-hero {
@@ -1171,8 +1188,8 @@ html {
     padding-left: 0.25em;
 }
 
-.work-story .one-half ul,
-.work-story .one-third ul {
+.case-study .one-half ul,
+.case-study .one-third ul {
     font-size: 0.75em;   /* 12px */
     font-weight: 200;
     margin: 1em 0;
@@ -1180,8 +1197,6 @@ html {
     max-width: 38em;
     list-style-position: outside;
 }
-
-
 
 
 
