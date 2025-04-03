@@ -1030,6 +1030,7 @@ html {
     position: sticky;
     top: 50%;
     translate: 0 -50%;
+    z-index: -1;
 }
 
 
@@ -1042,6 +1043,11 @@ html {
     transition: 0.3s;
     /* margin: 30px auto;  */
     cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 24px 0 var(--color-black);
+    }
+
 }
 
 .card img {
@@ -1051,6 +1057,12 @@ html {
     /* object-fit: cover;
     width: 100%;
     height: 100%; */
+
+    &:hover {
+        filter: brightness(1.05);
+        border: 1px solid rgb(0, 0, 0 /.3);
+        transform: scale(1.05, 1.05);
+    }
 }
 
 #about h2 {
@@ -1167,6 +1179,8 @@ html {
     /* margin: -3px -1px; */
 }
 
+
+/* QUESTION: why is the border radius unvisible? */
 .img-wrapper {
     /* margin: 2em 0; */
     border-radius: 8px;
