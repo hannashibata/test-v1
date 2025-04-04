@@ -1212,7 +1212,7 @@ html {
 }
 
 .container-img {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: grid;
     place-items: center;
     width: 100wv;
