@@ -48,6 +48,21 @@ CSS TABLE OF CONTENTS
 /* -----------------------------------------------  */
 
 @font-face {
+    font-family: 'ppeditorial-old-thin';
+    src: url('../fonts/PPEditorialOld-Thin.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-thinitalic';
+    src: url('../fonts/PPEditorialOld-ThinItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
     font-family: 'ppeditorial-old-regular';
     src: url('../fonts/PPEditorialOld-Regular.woff2') format('woff2');
     font-weight: normal;
@@ -121,8 +136,8 @@ CSS TABLE OF CONTENTS
     --font-serif-bold: 'ppeditorial-old-bold', 'Georgia', serif;
     --font-serif-regular: 'ppeditorial-old-regular', 'Georgia', serif;
     --font-serif-regularitalic: 'ppeditorial-old-italic', 'Georgia', serif;
-    --font-serif-: 'ppeditorial-old-regular', 'Georgia', serif;
-    --font-serif-regularitalic: 'ppeditorial-old-italic', 'Georgia', serif;
+    --font-serif-thin: 'ppeditorial-old-thin', 'Georgia', serif;
+    --font-serifthinitalic: 'ppeditorial-old-thinitalic', 'Georgia', serif;
     --font-body: "Karla", system-ui, "Helvetica", "Arial";
 
     /* SIZING UNITS */
@@ -229,16 +244,27 @@ p {
 
 }
 
+blockquote {
+    margin: .5em 0 .25em 0;
+    padding: 0;
+    font-family: var(--font-serif-regularitalic);
+    font-size: 1.5em;
+    line-height: 1.2;
+    font-feature-settings: "dlig" 1;
+
+}
+
 figcaption {
     font-weight: 200;
-    font-size: 75%;
+    /* font-size: 75%; */
     margin: 1em 0;
-    text-align: right;
 }
 
 /* GLOBAL MEDIA */
 
 /* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
+
+/* QUESTION: is video 100%??? */
 img, video {
     max-width: 100%;
     height: auto;
@@ -263,6 +289,12 @@ img, video {
         left: -9999px;
     }
 }
+
+/* Align left/right/center */
+.align-right {
+    text-align: right;
+}
+
 
 
 /* ------------------- */
@@ -661,6 +693,15 @@ section {
 
     h2 {
         font-size: 4vw;
+    }
+
+    h3 ul {
+        font-family: var(--font-serif-thin);
+    }
+
+    ul {
+        list-style: none;
+
     }
 
     a{
@@ -1107,6 +1148,11 @@ html {
     margin: calc(var(--unit-large) * 2) 0;
 }
 
+.casestudy .frame {
+    margin: 0;
+    padding: 3svh;
+}
+
 .hero-sub {
     margin: 0;
     padding: 0;
@@ -1152,10 +1198,9 @@ html {
     /* backdrop-filter: blur(5px); */
 }
 
-
-
 .casestudy h2, h5 {
     text-transform: uppercase;
+    margin: 0;
 }
 
 .casestudy h2, h3 {
@@ -1164,6 +1209,28 @@ html {
 
 .casestudy h3 {
     font-family: var(--font-serif-regularitalic);
+}
+
+.container-img {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    width: 100wv;
+    padding: 0;
+    margin: 4em 0;
+}
+
+.container-img img {
+    width: 100%;
+}
+
+.inspo-source {
+    padding: 0 1em;
+}
+
+figure {
+    padding: 4em 0 0 0;
+    margin: 0;
 }
 
 .video-wrapper {
