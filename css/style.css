@@ -1246,6 +1246,11 @@ figure {
     /* margin: -3px -1px; */
 }
 
+.button-wrapper {
+    margin: 6em 0 1em 0;
+    display: grid;
+    place-items: center;
+}
 
 /* QUESTION: why is the border radius unvisible? */
 .img-wrapper {
